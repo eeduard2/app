@@ -18,7 +18,7 @@
 
  <label >pass</label>
      <input type="text" name="contra" id="">
-
+<button type="submit"> guardar</button>
    </form>
 				 
 </div>
