@@ -30,7 +30,7 @@
 </html>
 <?php 
  
-include 'css/conexion.php';
+include 'conexion.php';
 
 $u=$_POST['user'];
 $p=$_POST['contra'];
