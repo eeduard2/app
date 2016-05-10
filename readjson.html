@@ -7,12 +7,13 @@
  {
  var url="http://ec2-52-37-73-110.us-west-2.compute.amazonaws.com/json.php";
  $.getJSON(url,function(result){
-
+alert("antes de recorrer" );
  $.each(result, function(i, field){
  var id=field.id;
  var title=field.title;
  var duration=field.duration;
  var price=field.price;
+ alert(""+id);
  $("#listview").append("<a class='item' href='form.html?id="+id+"&title="+title+"&duration="+duration+"&price="+price+"'><span class='item-note'>$"+price+"</span><h2>"+ title + " </h2><p>"+ duration +"</p></a>");
  });
  });
