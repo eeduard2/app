@@ -3,25 +3,17 @@
  <link rel="stylesheet" type="text/css" href="css/ionic.css">
  <script type="text/javascript" src="js/jquery.js"></script>
  <script type="text/javascript">
- alert("antes de recorrer 1" );
- $(document).ready(function()
- {
- 	alert("antes de recorrer 2" );
- var url="http://ec2-52-37-73-110.us-west-2.compute.amazonaws.com/app/json.php";
- alert("antes de recorrer 3" );
- $.getJSON(url,function(result){
- 	alert("antes de recorrer 4" );
-alert("antes de recorrer 5" );
- $.each(result, function(i, field){
- var id=field.id;
- var title=field.title;
- var duration=field.duration;
- var price=field.price;
- alert(""+id);
- $("#listview").append("<a class='item' href='form.html?id="+id+"&title="+title+"&duration="+duration+"&price="+price+"'><span class='item-note'>$"+price+"</span><h2>"+ title + " </h2><p>"+ duration +"</p></a>");
- });
- });
- });
+JavaScript
+
+$.ajaxSetup({ cache: false });
+var url = 'http://www.phonegaptutorial.com/wp-content/uploads/examples/user.json';
+$.getJSON(url, function(data)
+{
+    // process the data
+    $.ajaxSetup({ cache: true });
+});
+
+
  </script>
 </head>
 <body>
