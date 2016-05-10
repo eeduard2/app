@@ -2,34 +2,39 @@
 <head>
  <link rel="stylesheet" type="text/css" href="css/ionic.css">
  <script type="text/javascript" src="js/jquery.js"></script>
- <script type="text/javascript">
- alert("antes de recorrer 1" );
- $(document).ready(function()
- {
- 	alert("antes de recorrer 2" );
- var url="http://www.ec2-52-37-73-110.us-west-2.compute.amazonaws.com/app/json.php";
- alert("antes de recorrer 3" );
- $.getJSON(url,function(data){
- 	alert("antes de recorrer 4" );
-alert("antes de recorrer 5" );
- $.each(result, function(i, field){
- var id=field.id;
- var title=field.title;
- var duration=field.duration;
- var price=field.price;
- alert(""+id);
- $("#listview").append("<a class='item' href='form.html?id="+id+"&title="+title+"&duration="+duration+"&price="+price+"'><span class='item-note'>$"+price+"</span><h2>"+ title + " </h2><p>"+ duration +"</p></a>");
- });
- });
- });
- </script>
+ <script charset="utf-8" type="text/javascript" src="jquery.js"></script>
+ <html>
+<head>
+ <link rel="stylesheet" type="text/css" href="css/ionic.css">
+ <script type="text/javascript" src="js/jquery.js"></script>
+ <script charset="utf−8" type="text/javascript"> 
+function connect(e) 
+{ 
+var term= {button:e}; 
+$.ajax({ 
+url:'http://ec2-52-37-73-110.us-west-2.compute.amazonaws.com/app/json.php', 
+type:'POST', 
+data:term, 
+dataType:'json', 
+error:function(jqXHR,text_status,strError){ 
+alert(“no connection”);}, 
+timeout:60000, 
+success:function(data){ 
+$("#result").html(""); 
+for(var i in data){ 
+$("#result").append("<li>"+data[i]+"</li>"); 
+} 
+} 
+});} 
+</script>
 </head>
 <body>
- <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
- <a href="index.html" class="button button-clear">Home</a>
- <h1 class="title">Read Database (JSON)</h1>
- </div><br/><br/>
- <ul class="list" id="listview">
- </ul>
+<div> 
+<div><center><b>Bikes or Cars</b></center> 
+<center><input onclick="connect(this.value)" type="button" value="cars" /></center> 
+<center><input onclick="connect(this.value)" type="button" value="bikes" /></center> 
+<center><b>Results</b></center> 
+<ul id="result"></ul></div> 
+</div>
 </body>
 </html>

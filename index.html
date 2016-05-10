@@ -2,47 +2,26 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/ionic.css">
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function()
-    {
-        $("#insert").click(function(){
-            var title=$("#title").val();
-            var duration=$("#duration").val();
-            var price=$("#price").val();
-            var dataString="title="+title+"&duration="+duration+"&price="+price+"&insert=";
-            
-            if($.trim(title).length>0 & $.trim(duration).length>0 & $.trim(price).length>0)
-            {
-           
-                $.ajax({
-                    type: "POST",
-                    //url: "http://phonegappro.esy.es/test/insert.php",
-                    url:"http://eeduard2.webcindario.com/insert.php",
-                    data: dataString,
-                    crossDomain: true,
-                    cache: false,
-                    beforeSend: function(){ $("#insert").val('Connecting...');},
-                     error: function(){
-                                        alert("error petici�n ajax");
-                                  },
-                    success: function(data){
-                        if(data=="ok")
-                        {
-                            alert("inserted");
-                            $("#insert").val('Insert');
-                        }
-                        else if(data=="error")
-                        {
-                            alert("error");
-                             $("#insert").val('Insert');
-                        }
-                    }
-                });
-            }return false;
-              
-        });
-    });
-    </script>
+  <script charset="utf−8" type="text/javascript"> 
+function connect(e) 
+{ 
+var term= {button:e}; 
+$.ajax({ 
+url:'http://urldetuservidor/reply.php', 
+type:'POST', 
+data:term, 
+dataType:'json', 
+error:function(jqXHR,text_status,strError){ 
+alert(“no connection”);}, 
+timeout:60000, 
+success:function(data){ 
+$("#result").html(""); 
+for(var i in data){ 
+$("#result").append("<li>"+data[i]+"</li>"); 
+} 
+} 
+});} 
+</script>
 </head>
 <body>
     <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
