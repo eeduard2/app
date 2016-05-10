@@ -3,11 +3,15 @@
  <link rel="stylesheet" type="text/css" href="css/ionic.css">
  <script type="text/javascript" src="js/jquery.js"></script>
  <script type="text/javascript">
+ alert("antes de recorrer 1" );
  $(document).ready(function()
  {
+ 	alert("antes de recorrer 2" );
  var url="http://ec2-52-37-73-110.us-west-2.compute.amazonaws.com/json.php";
+ alert("antes de recorrer 3" );
  $.getJSON(url,function(result){
-alert("antes de recorrer" );
+ 	alert("antes de recorrer 4" );
+alert("antes de recorrer 5" );
  $.each(result, function(i, field){
  var id=field.id;
  var title=field.title;
