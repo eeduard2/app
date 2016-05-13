@@ -5,7 +5,7 @@
  <script type="text/javascript">
  $(document).ready(function()
  {
- var url="http://eeduard2.webcindario.com/json.php";
+ var url="http://ec2-52-37-73-110.us-west-2.compute.amazonaws.com/app/json.php";
  $.getJSON(url,function(result){
  console.log(result);
  $.each(result, function(i, field){
@@ -21,7 +21,7 @@
 </head>
 <body>
  <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
- <a href="index.html" class="button button-clear">Home</a>
+ <a href="http://ec2-52-37-73-110.us-west-2.compute.amazonaws.com/app/index.html" class="button button-clear">Home</a>
  <h1 class="title">Read Database (JSON)</h1>
  </div><br/><br/>
  <ul class="list" id="listview">
